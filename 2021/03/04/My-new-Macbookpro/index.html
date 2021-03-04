@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://tonychen257.github.io">
   <title>My new Macbookpro | Clouddreams</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="My new MacBook Pro  And test for my new environment for blog">
-<meta name="keywords" content="Life">
+  <meta name="description" content="新买电脑之后，碰到一堆关于M1 Macbook Pro配置的问题，在这边做一下总结。 大概需要安装这三大内容，一个是配置我的anaconda环境，里面包括python3.8。 还有就是我的写博客的hexo环境，最后是iTerm2的编程环境。以下一个个来介绍我踩到的坑。 Anaconda首先去官网下载了anaconda，一切都很平静，一路下一步安装，中间选择一下安装的位置。 就在我以为大功告成的时候">
+<meta name="keywords" content="装机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="My new Macbookpro">
 <meta property="og:url" content="http://tonychen257.github.io/2021/03/04/My-new-Macbookpro/index.html">
 <meta property="og:site_name" content="Clouddreams">
-<meta property="og:description" content="My new MacBook Pro  And test for my new environment for blog">
+<meta property="og:description" content="新买电脑之后，碰到一堆关于M1 Macbook Pro配置的问题，在这边做一下总结。 大概需要安装这三大内容，一个是配置我的anaconda环境，里面包括python3.8。 还有就是我的写博客的hexo环境，最后是iTerm2的编程环境。以下一个个来介绍我踩到的坑。 Anaconda首先去官网下载了anaconda，一切都很平静，一路下一步安装，中间选择一下安装的位置。 就在我以为大功告成的时候">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-03-03T16:15:41.798Z">
+<meta property="og:updated_time" content="2021-03-04T06:50:40.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="My new Macbookpro">
-<meta name="twitter:description" content="My new MacBook Pro  And test for my new environment for blog">
+<meta name="twitter:description" content="新买电脑之后，碰到一堆关于M1 Macbook Pro配置的问题，在这边做一下总结。 大概需要安装这三大内容，一个是配置我的anaconda环境，里面包括python3.8。 还有就是我的写博客的hexo环境，最后是iTerm2的编程环境。以下一个个来介绍我踩到的坑。 Anaconda首先去官网下载了anaconda，一切都很平静，一路下一步安装，中间选择一下安装的位置。 就在我以为大功告成的时候">
   
     <link rel="alternative" href="/atom.xml" title="Clouddreams" type="application/atom+xml">
   
@@ -173,8 +173,30 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>My new MacBook Pro </p>
-<p>And test for my new environment for blog</p>
+        <p>新买电脑之后，碰到一堆关于M1 Macbook Pro配置的问题，在这边做一下总结。</p>
+<p>大概需要安装这三大内容，一个是配置我的anaconda环境，里面包括python3.8。</p>
+<p>还有就是我的写博客的hexo环境，最后是iTerm2的编程环境。以下一个个来介绍我踩到的坑。</p>
+<h1><span id="anaconda">Anaconda</span></h1><p>首先去官网下载了anaconda，一切都很平静，一路下一步安装，中间选择一下安装的位置。</p>
+<p>就在我以为大功告成的时候，点击anaconda图标，死活不动，一直initializing。开始疯狂google，暗中以为一定是M1芯片的问题。这种情况一直持续了半个小时，中间找到的方法也只有重装而已。但是有一点值得高兴的就是，anaconda装完之后直接把Terminal的python也换成了3.8，不要自己配置环境变量了。</p>
+<blockquote>
+<p>这会一直用的系统自带的Terminal，所以都是用vim/open ~/.zshrc来修改Path，并且利用source ~/.zshrc激活修改</p>
+</blockquote>
+<ul>
+<li>中间还安装了Homebrew，export PATH=”/opt/homebrew/bin:$PATH”</li>
+</ul>
+<p>刚刚测试了一下，也是可以访问的。</p>
+<p>这样Python的环境配置的差不多了，然后又下载了Vscode，直接上手不需要什么操作。</p>
+<h1><span id="hexo">Hexo</span></h1><p>博客hexo环境是最头疼的一个了，因为看到一篇教程说先搞定nodejs的环境，所以想都没想直接安装最新的nodejs，结果一路下来，到最后hexo g/d的时候一直报错。查了很多资料说是因为nodejs的版本太新导致的。不太敢确定，但是最后发现是对的。</p>
+<p>这时候nvm出场了，这个专门管理nodejs的版本的package出现了。花了好久解决443的问题，最后也不知道怎么弄出来的，中途也利用了翻墙的代码。</p>
+<blockquote>
+<p>export http_proxy=<a href="http://127.0.0.1:1086" target="_blank" rel="noopener">http://127.0.0.1:1086</a><br>export https_proxy=$http_proxy</p>
+</blockquote>
+<p>总算把nvm装上了，然后又安装了nodejs V12.21.0，一切顺利，可以完美写博客了。</p>
+<h1><span id="iterm2">iTerm2</span></h1><p>最后的最后，就是将Terminal换成iTerm2。这一步走的还算快，一步一步按着他走没啥问题。只有一个oh-my-zsh没法用命令行安装，依然是之前443的问题，这次没有运气，最后只有手动安装成功了。</p>
+<h1><span id="其他的编程环境">其他的编程环境</span></h1><h2><span id="github-desktop">GitHub Desktop</span></h2><p>这个安装没问题，已经非常自动化了。</p>
+<h2><span id="latex">LaTeX</span></h2><p>为了在本地搭建LaTeX的环境，也是参考了别人的教程，没有遇到什么问题。</p>
+<h2><span id="xcode">Xcode</span></h2><p>为了之后IOS编程使用，并且自带git。</p>
+<h2><span id="andriod-studio">Andriod Studio</span></h2><p>这个之后会安装。</p>
 
       
 
@@ -225,7 +247,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Life</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">装机</a>
         		</li>
       		
 		</ul>
@@ -324,7 +346,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">Anaconda</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">Hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">iTerm2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">其他的编程环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">4.1.</span> <span class="toc-text">GitHub Desktop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">4.2.</span> <span class="toc-text">LaTeX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">4.3.</span> <span class="toc-text">Xcode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">4.4.</span> <span class="toc-text">Andriod Studio</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -467,15 +489,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Arcgis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,19 +497,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,7 +509,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,11 +521,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Typora</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">videos</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,7 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
+                <a href="javascript:void(0)" class="js-tag color2">videos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,15 +545,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">阿里云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人记忆</a>
+                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,7 +553,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">POI</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,7 +561,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人记忆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">POI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">阿里云</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,6 +586,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">VPN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">装机</a>
               </li>
             
             <div class="clearfix"></div>
