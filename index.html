@@ -173,28 +173,7 @@
         <p>新买电脑之后，碰到一堆关于M1 Macbook Pro配置的问题，在这边做一下总结。</p>
 <p>大概需要安装这三大内容，一个是配置我的anaconda环境，里面包括python3.8。</p>
 <p>还有就是我的写博客的hexo环境，最后是iTerm2的编程环境。以下一个个来介绍我踩到的坑。</p>
-<h1><span id="anaconda">Anaconda</span></h1><p>首先去官网下载了anaconda，一切都很平静，一路下一步安装，中间选择一下安装的位置。</p>
-<p>就在我以为大功告成的时候，点击anaconda图标，死活不动，一直initializing。开始疯狂google，暗中以为一定是M1芯片的问题。这种情况一直持续了半个小时，中间找到的方法也只有重装而已。但是有一点值得高兴的就是，anaconda装完之后直接把Terminal的python也换成了3.8，不要自己配置环境变量了。</p>
-<blockquote>
-<p>这会一直用的系统自带的Terminal，所以都是用vim/open ~/.zshrc来修改Path，并且利用source ~/.zshrc激活修改</p>
-</blockquote>
-<ul>
-<li>中间还安装了Homebrew，export PATH=”/opt/homebrew/bin:$PATH”</li>
-</ul>
-<p>刚刚测试了一下，也是可以访问的。</p>
-<p>这样Python的环境配置的差不多了，然后又下载了Vscode，直接上手不需要什么操作。</p>
-<h1><span id="hexo">Hexo</span></h1><p>博客hexo环境是最头疼的一个了，因为看到一篇教程说先搞定nodejs的环境，所以想都没想直接安装最新的nodejs，结果一路下来，到最后hexo g/d的时候一直报错。查了很多资料说是因为nodejs的版本太新导致的。不太敢确定，但是最后发现是对的。</p>
-<p>这时候nvm出场了，这个专门管理nodejs的版本的package出现了。花了好久解决443的问题，最后也不知道怎么弄出来的，中途也利用了翻墙的代码。</p>
-<blockquote>
-<p>export http_proxy=<a href="http://127.0.0.1:1086" target="_blank" rel="noopener">http://127.0.0.1:1086</a><br>export https_proxy=$http_proxy</p>
-</blockquote>
-<p>总算把nvm装上了，然后又安装了nodejs V12.21.0，一切顺利，可以完美写博客了。</p>
-<h1><span id="iterm2">iTerm2</span></h1><p>最后的最后，就是将Terminal换成iTerm2。这一步走的还算快，一步一步按着他走没啥问题。只有一个oh-my-zsh没法用命令行安装，依然是之前443的问题，这次没有运气，最后只有手动安装成功了。</p>
-<h1><span id="其他的编程环境">其他的编程环境</span></h1><h2><span id="github-desktop">GitHub Desktop</span></h2><p>这个安装没问题，已经非常自动化了。</p>
-<h2><span id="latex">LaTeX</span></h2><p>为了在本地搭建LaTeX的环境，也是参考了别人的教程，没有遇到什么问题。</p>
-<h2><span id="xcode">Xcode</span></h2><p>为了之后IOS编程使用，并且自带git。</p>
-<h2><span id="andriod-studio">Andriod Studio</span></h2><p>这个之后会安装。</p>
-
+        
       
 
 
@@ -277,15 +256,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1><span id="easytwo-sum">(Easy)</span></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> complement = target - nums[i];</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(complement))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;map.get(complement), i&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"No two sum solution"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1><span id="easyremove-duplicates-from-sorted-array">(Easy)</span></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; nums.length; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[j] != nums[i]) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                nums[i] = nums[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1><span id="easyremove-element">(Easy)</span></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span> ; j &lt; nums.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[j] != val) &#123;</span><br><span class="line">                nums[i] = nums[j];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1><span id="easysearch-insert-position">(Easy)</span></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>, high = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; target) &#123;</span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                high = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        <h1 id="Easy-Two-Sum"><a href="#Easy-Two-Sum" class="headerlink" title="(Easy)Two Sum"></a>(Easy)<a href="https://leetcode.com/problems/two-sum" target="_blank" rel="noopener">Two Sum</a></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> complement = target - nums[i];</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(complement))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;map.get(complement), i&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"No two sum solution"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
       
 
 
@@ -368,85 +340,11 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1><span id="issue题目">Issue题目</span></h1><blockquote>
+        <h1 id="Issue题目"><a href="#Issue题目" class="headerlink" title="Issue题目"></a>Issue题目</h1><blockquote>
 <p>A nation should require all of its students to study the same national curriculum until they enter college.</p>
 <p>Write a resposnse in which you discuss the extent to which you agree or disagree with the recommendation and explain your reasoning for the position you take. In developing and supporting your position, describe specific circumstances in which adopting the recommendation would or would not be advantageous and explain how these examples shape your position.</p>
 </blockquote>
-<h2><span id="要注意instruction">要注意Instruction</span></h2><ul>
-<li>讨论一下你同意这句话的程度</li>
-<li>描述如何按这句话可能发生的轻快</li>
-<li>探讨这些情况好不好</li>
-<li>解释为什么这些情况和后果让你有了最初的立场</li>
-</ul>
-<h3><span id="第一段怎么写">第一段怎么写</span></h3><ul>
-<li>第一句话表达立场</li>
-</ul>
-<blockquote>
-<p>While it may be to the advantage of a nation that all its students learn the same basic information, this can be accomplished without going to the lengths of having a national curriculum. </p>
-<ul>
-<li>表达作者的观点：中立（while it may be）。也许对国家来说，（结果一）学生可以学到基础的知识，（结果二）而且这可以让课表不要特别长</li>
-</ul>
-<p>By requiring that all students know a certain amount in basic areas of knowledge without specifying the details, a nation can achieve the same the benefits of a national curriculum without unduly denying the freedom of tearchers to teach as they see fit. </p>
-<ul>
-<li>承接上文的学生了解基础知识（加东西）不深的知识，那么国家可以从中获利（对应结果二）可以让老师的自由更好。这是一个类似于排比的句子，By原因without，结果without</li>
-</ul>
-<p>A system of simple national standards is good enough. To go further and create a full-fledged national curriculum would gain nothing and impair the ability of teachers.</p>
-<ul>
-<li>对面的总结，同时说明观点：一个简单的系统对国家来说很好。全面发展的系统会损害国家和老师的利益。</li>
-</ul>
-</blockquote>
-<h2><span id="每一个段落的论证逻辑要饱满每一个claim都需要解释完善">每一个段落的论证逻辑要饱满，每一个claim都需要解释完善</span></h2><blockquote>
-<p>【1】It is important to ensure that all students learn the fundamentals of different subjects areas.</p>
-<ul>
-<li>中心句：学生学到基础知识是很重要的</li>
-</ul>
-<p>【2】In order to graduate from high school, for example, all students should have a good understanding of algebra, of basic concepts in science and history, and an ability to read critically.</p>
-<ul>
-<li>举例哪些是基础知识，举个例子，高中</li>
-</ul>
-<p>【3】These are skills that will benefit people in all kinds of different careers.</p>
-<ul>
-<li>扩展为什么掌握这些例子很重要</li>
-</ul>
-<p>【4】Even if you never manipulate an equation after graduating form high school, you will have a far better understanding of the world around you if you know simple facts of math and science.</p>
-<ul>
-<li>让步：即使你没有用过公示，但是这些知识对你认知世界很有帮助</li>
-</ul>
-<p>【5】Fields such as English and history are even more important, as they are absolutely necessary to maintain an informed citizenry capable of making important decisions that all citizens of a democracy are called upon to make.</p>
-<ul>
-<li>开始表达自己的观点：英语和历史很重要</li>
-</ul>
-<p>In order to achieve this, it is necessary to have national standards of education.</p>
-</blockquote>
-<h2><span id="别用很多从句长短结合">别用很多从句，长短结合</span></h2><ul>
-<li>多用强调、倒装和虚拟语气（同位语）</li>
-</ul>
-<h3><span id="强调">强调</span></h3><blockquote>
-<p>It is the 这条大红项圈 that 我们家狗狗最爱了。</p>
-</blockquote>
-<p>放到题目里</p>
-<blockquote>
-<p>It is the diversity of the curriculum that 国家需要强调和重视</p>
-</blockquote>
-<p>比国家应该更强调重视diversity有力多</p>
-<h3><span id="倒装">倒装</span></h3><blockquote>
-<p>only when 我们家大黄狗叫了 do I know that 贼来了</p>
-</blockquote>
-<p>强调了只要某种条件的成立才能干吗</p>
-<p>为了强调和突出某些东西才去用</p>
-<h3><span id="虚拟">虚拟</span></h3><p>虚拟语气可以用在忆希额幻想的consquence或者circumstance中。</p>
-<blockquote>
-<p>If a national curriculum were implemented, would it come with a significant increase in financial support?</p>
-</blockquote>
-<h2><span id="不要太assertive">不要太assertive</span></h2><p>多用would/perhaps/may/might/likely to/maybe/我认为等等，或者加范围修饰most/many/some/under some cirumstances/to some extent</p>
-<blockquote>
-<p>Fields such as English and history are even more important, as they are <strong>absolutely</strong> necessary to [make decisions] </p>
-</blockquote>
-<p>加一个In general好很多</p>
-<blockquote>
-<p>Most teachers are very capable of imparting knowledge on students, and most school boards are similarly well-intentioned. Nevertheless, without national standards, some students are bound to fall through the cracks, and some school boards, under pressure from groups of parents, may eliminate certain subject matter from schools, as has happened recently with the teaching of evolution in conservative areas of the United States. In order to ensure that all students learn all that they need to know as functioning adults, some kind of national standards should be in place.</p>
-</blockquote>
-<h2><span id="知道自己每句话的作用是什么">知道自己每句话的作用是什么</span></h2><h2><span id="句子之间要有逻辑关系环环相扣">句子之间要有逻辑关系，环环相扣</span></h2>
+        
       
 
 
@@ -1256,15 +1154,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Arcgis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color5">Html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1272,7 +1170,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1280,11 +1178,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">装机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Life</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1296,7 +1198,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Abroad</a>
+                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Typora</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1304,15 +1210,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Html</a>
+                <a href="javascript:void(0)" class="js-tag color2">Abroad</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">阿里云</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1324,11 +1230,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color5">个人记忆</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人记忆</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1337,10 +1243,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Google</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">阿里云</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1353,14 +1255,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">VPN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">装机</a>
               </li>
             
             <div class="clearfix"></div>
