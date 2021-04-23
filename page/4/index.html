@@ -146,6 +146,512 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-selenium简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/24/selenium简介/">selenium简介</a>
+    </h1>
+  
+
+            <span id="busuanzi_container_page_pv" style="color:#ccc;margin-left:30px">
+  您是第<span id="busuanzi_value_page_pv"></span>个阅读者
+</span>
+        
+        <a href="/2019/10/24/selenium简介/" class="archive-article-date">
+  	<time datetime="2019-10-24T07:50:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>转载：<a href="https://blog.csdn.net/TestingGDR/article/details/81950593" target="_blank" rel="noopener">https://blog.csdn.net/TestingGDR/article/details/81950593</a></p>
+</blockquote>
+<h2><span id="selenium-基本介绍">Selenium 基本介绍</span></h2><p>Selenium`是开源的自动化测试工具，它主要是用于Web 应用程序的自动化测试，不只局限于此，同时支持所有基于web 的管理任务自动化。</p>
+<h2><span id="selenium官网的介绍">Selenium官网的介绍</span></h2><blockquote>
+<p>Selenium is a suite of tools to automate web browsers across many platforms.</p>
+<ul>
+<li>runs in many browsers and operating systems</li>
+<li>can be controlled by many programming languages and testing frameworks.</li>
+</ul>
+</blockquote>
+<ul>
+<li>Selenium 官网：<a href="http://seleniumhq.org/" target="_blank" rel="noopener">http://seleniumhq.org/</a></li>
+<li>Selenium Github 主页：<a href="https://github.com/SeleniumHQ/selenium" target="_blank" rel="noopener">https://github.com/SeleniumHQ/selenium</a></li>
+</ul>
+<p>Selenium 是用于测试 Web 应用程序用户界面 (UI) 的常用框架。它是一款用于运行端到端功能测试的超强工具。您可以使用多个编程语言编写测试，并且 Selenium 能够在一个或多个浏览器中执行这些测试。</p>
+<p>Selenium 经历了三个版本：Selenium 1，Selenium 2 和 Selenium 3。Selenium 也不是简单一个工具，而是由几个工具组成，每个工具都有其特点和应用场景。</p>
+<p>Selenium 诞生于 2004 年，当在 ThoughtWorks 工作的 Jason Huggins 在测试一个内部应用时。作为一个聪明的家伙，他意识到相对于每次改动都需要手工进行测试，他的时间应该用得更有价值。他开发了一个可以驱动页面进行交互的 Javascript 库，能让多浏览器自动返回测试结果。那个库最终变成了 Selenium 的核心，它是 Selenium RC（远程控制）和 Selenium IDE 所有功能的基础。Selenium RC 是开拓性的，因为没有其他产品能让你使用自己喜欢的语言来控制浏览器。这就是 Selenium 1。</p>
+<p>然而，由于它使用了基于 Javascript 的自动化引擎，而浏览器对 Javascript 又有很多安全限制，有些事情就难以实现。更糟糕的是，网站应用正变得越来越强大，它们使用了新浏览器提供的各种特性，都使得这些限制让人痛苦不堪。</p>
+<p>在 2006 年，一名 Google 的工程师， Simon Stewart 开始基于这个项目进行开发，这个项目被命名为 WebDriver。此时，Google 早已是 Selenium 的重度用户，但是测试工程师们不得不绕过它的限制进行工具。Simon 需要一款能通过浏览器和操作系统的本地方法直接和浏览器进行通话的测试工具，来解决Javascript 环境沙箱的问题。WebDriver 项目的目标就是要解决 Selenium 的痛点。</p>
+<p>到了 2008 年，Selenium 和 WebDriver 两个项目合并。Selenium 有着丰富的社区和商业支持，但 WebDriver 显然代表着未来的趋势。两者的合并为所有用户提供了一组通用功能，并且借鉴了一些测试自动化领域最闪光的思想。这就是 Selenium 2。</p>
+<p>2016 年，Selenium 3 诞生。移除了不再使用的 Selenium 1 中的 Selenium RC，并且官方重写了所有的浏览器驱动。</p>
+<h2><span id="配置浏览器和驱动">配置浏览器和驱动</span></h2><ul>
+<li><p>Selenium 2 可以默认支持Firefox 46.0或者更低版本，对于其他浏览器需要额外安装驱动。</p>
+</li>
+<li><p>Selenium 3 对于所有的浏览器都需要安装驱动，本文以 Chrome 和 Firefox、IE为例设置浏览器和驱动。</p>
+<ul>
+<li>ChromeDriver下载地址：<a href="http://chromedriver.storage.googleapis.com/index.htmlChromeDriver" target="_blank" rel="noopener">http://chromedriver.storage.googleapis.com/index.htmlChromeDriver</a> </li>
+<li>GeckoDriver下载地址：<a href="https://link.jianshu.com/?t=https%3A%2F%2Fgithub.com%2Fmozilla%2Fgeckodriver%2Freleases" target="_blank" rel="noopener">https://github.com/mozilla/geckodriver/releases</a></li>
+<li>IEDriverServer下载地址：<a href="http://selenium-release.storage.googleapis.com/index.html" target="_blank" rel="noopener">http://selenium-release.storage.googleapis.com/index.html</a></li>
+</ul>
+</li>
+</ul>
+<p>浏览器驱动的配置</p>
+<ul>
+<li>首先，将下载好的对应版本的浏览器安装。</li>
+<li>其次，在 Python 的根目录中，放入浏览器驱动。</li>
+<li>最好再重启电脑，一般情况下不重启也可以的。</li>
+</ul>
+<h2><span id="selenium-的最简脚本">Selenium 的最简脚本</span></h2><p>通过上一节的环境安装成功以后，我们可以进行第一个对Selenium 的使用，就是最简脚本编写。脚本如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 声明一个司机，司机是个Chrome类的对象</span></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让司机加载一个网页</span></span><br><span class="line">driver.get(<span class="string">"http://demo.ranzhi.org"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给司机3秒钟去打开</span></span><br><span class="line">sleep(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始登录</span></span><br><span class="line"><span class="comment"># 1. 让司机找用户名的输入框</span></span><br><span class="line">we_account = driver.find_element_by_css_selector(<span class="string">'#account'</span>)</span><br><span class="line">we_account.clear()</span><br><span class="line">we_account.send_keys(<span class="string">"demo"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 让司机找密码的输入框</span></span><br><span class="line">we_password = driver.find_element_by_css_selector(<span class="string">'#password'</span>)</span><br><span class="line">we_password.clear()</span><br><span class="line">we_password.send_keys(<span class="string">"demo"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 让司机找登录按钮并单击</span></span><br><span class="line">driver.find_element_by_css_selector(<span class="string">'#submit'</span>).click()</span><br><span class="line">sleep(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<p>实际上一段20行的代码，也不能算太少了。但是这段代码的使用，确实体现了 Selenium 的最简单的使用。我们在下面内容进行阐述。</p>
+<h2><span id="selenium-webdriver-api-的使用">Selenium WebDriver API 的使用</span></h2><p>通过上述最简脚本的使用，我们可以来进一步了解 Selenium 的使用。事实上，上一节用的，便是 Selenium 的 WebDriver API。API（Application Programming Interface，应用程序编程接口，即通过编程语言，操作 WebDriver 的方法集合）</p>
+<p>Selenium WebDriver API 官方参考：<a href="http://seleniumhq.github.io/selenium/docs/api/py/" target="_blank" rel="noopener">http://seleniumhq.github.io/selenium/docs/api/py/</a></p>
+<p>具体API文档地址：<a href="https://seleniumhq.github.io/selenium/docs/api/py/api.html" target="_blank" rel="noopener">https://seleniumhq.github.io/selenium/docs/api/py/api.html</a></p>
+<ul>
+<li><p>API 使用： 用现成的类（大部分情况）的方法进行编程</p>
+<ul>
+<li>WebDriver</li>
+<li>WebElement</li>
+</ul>
+</li>
+<li><p>API 文档</p>
+<ul>
+<li>编程使用说明</li>
+<li>介绍了每个方法的使用<ul>
+<li>方法的作用</li>
+<li>方法的参数</li>
+<li>方法的返回值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><span id="控制浏览器">控制浏览器</span></h3><p>浏览器的控制也是自动化测试的一个基本组成部分，我们可以将浏览器最大化，设置浏览器的高度和宽度以及对浏览器进行导航操作等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 浏览器打开网址</span></span><br><span class="line">driver.get(<span class="string">"https://www.baidu.com"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 浏览器最大化</span></span><br><span class="line">driver.maximize_window()</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 设置浏览器的高度为800像素，宽度为480像素</span></span><br><span class="line">driver.set_window_size(<span class="number">480</span>, <span class="number">800</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 浏览器后退</span></span><br><span class="line">driver.back()</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 浏览器前进</span></span><br><span class="line">driver.forward()</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 浏览器关闭</span></span><br><span class="line">driver.close()</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 浏览器退出</span></span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
+
+<h3><span id="元素定位操作">元素定位操作</span></h3><table>
+<thead>
+<tr>
+<th>方法Method</th>
+<th>描述Description</th>
+<th>参数Argument</th>
+<th>示例Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>该方法通过ID的属性值去定位查找单个元素</td>
+<td>id: 需要被查找的元素的ID</td>
+<td><code>find_element_by_id(&#39;search&#39;)</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>该方法通过name的属性值去定位查找单个元素</td>
+<td>name: 需要被查找的元素的名称</td>
+<td><code>find_element_by_name(&#39;q&#39;)</code></td>
+</tr>
+<tr>
+<td><code>class name</code></td>
+<td>该方法通过class的名称值去定位查找单个元素</td>
+<td>class_name: 需要被查找的元素的类名</td>
+<td><code>find_element_by_class_name(&#39;input-text&#39;)</code></td>
+</tr>
+<tr>
+<td><code>tag_name</code></td>
+<td>该方法通过tag的名称值去定位查找单个元素</td>
+<td>tag: 需要被查找的元素的标签名称</td>
+<td><code>find_element_by_tag_name(&#39;input&#39;)</code></td>
+</tr>
+<tr>
+<td><code>link_text</code></td>
+<td>该方法通过链接文字去定位查找单个元素</td>
+<td>link_text: 需要被查找的元素的链接文字</td>
+<td><code>find_element_by_link_text(&#39;Log In&#39;)</code></td>
+</tr>
+<tr>
+<td><code>partial_link_text</code></td>
+<td>该方法通过部分链接文字去定位查找单个元素</td>
+<td>link_text: 需要被查找的元素的部分链接文字</td>
+<td><code>find_element_by_partial_link_text(&#39;Long&#39;)</code></td>
+</tr>
+<tr>
+<td><code>xpath</code></td>
+<td>该方法通过XPath的值去定位查找单个元素</td>
+<td>xpath: 需要被查找的元素的xpath</td>
+<td><code>find_element_by_xpath(&#39;//*[@id=&quot;xx&quot;]/a&#39;)</code></td>
+</tr>
+<tr>
+<td><code>css_selector</code></td>
+<td>该方法通过CSS选择器去定位查找单个元素</td>
+<td>css_selector: 需要被查找的元素的ID</td>
+<td><code>find_element_by_css_selector(&#39;#search&#39;)</code></td>
+</tr>
+</tbody></table>
+<h3><span id="鼠标事件操作">鼠标事件操作</span></h3><p>Web测试中，有关鼠标的操作，不只是单击，有时候还要做右击、双击、拖动等操作。这些操作包含在ActionChains类中。</p>
+<p>常用的鼠标方法：</p>
+<p>context_click() # 右击<br>double_click() # 双击<br>drag_and_drop() # 拖拽<br>move_to_element() # 鼠标停在一个元素上<br>click_and_hold() # 按下鼠标左键在一个元素上</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法模拟鼠标右键，参考代码如下：</span></span><br><span class="line"><span class="comment"># 引入ActionChains 类</span></span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br><span class="line">...</span><br><span class="line"><span class="comment"># 定位到要右击的元素</span></span><br><span class="line">right =driver.find_element_by_xpath(<span class="string">"xx"</span>)</span><br><span class="line"><span class="comment"># 对定位到的元素执行鼠标右键操作</span></span><br><span class="line">ActionChains(driver).context_click(right).perform()</span><br><span class="line">...</span><br><span class="line"><span class="comment"># 定位到要双击的元素</span></span><br><span class="line">double = driver.find_element_by_xpath(<span class="string">"xxx"</span>)</span><br><span class="line"><span class="comment"># 对定位到的元素执行鼠标双击操作</span></span><br><span class="line">ActionChains(driver).double_click(double).perform()</span><br></pre></td></tr></table></figure>
+
+<h3><span id="键盘事件操作">键盘事件操作</span></h3><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>send_keys(Keys.BACKSPACE)</code></td>
+<td>删除键(BackSpace)</td>
+</tr>
+<tr>
+<td><code>send_keys(Keys.SPACE)</code></td>
+<td>空格键(Space)</td>
+</tr>
+<tr>
+<td><code>send_keys(Keys.TAB)</code></td>
+<td>制表键(Tab)</td>
+</tr>
+<tr>
+<td><code>send_keys(Keys.ESCAPE)</code></td>
+<td>回退键(Esc)</td>
+</tr>
+<tr>
+<td><code>send_keys(Keys.ENTER)</code></td>
+<td>回车键(Enter)</td>
+</tr>
+<tr>
+<td><code>send_keys(Keys.CONTROL,&#39;a&#39;)</code></td>
+<td>全选（Ctrl+A）</td>
+</tr>
+<tr>
+<td><code>send_keys(Keys.CONTROL,&#39;c&#39;)</code></td>
+<td>复制（Ctrl+C）</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 引入Keys 类包</span></span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.keys <span class="keyword">import</span> Keys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"> </span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">"http://www.baidu.com"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 输入框输入内容</span></span><br><span class="line">driver.find_element_by_id(<span class="string">"kw"</span>).send_keys(<span class="string">"selenium"</span>)</span><br><span class="line">time.sleep(<span class="number">3</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 删除多输入的一个m</span></span><br><span class="line">driver.find_element_by_id(<span class="string">"kw"</span>).send_keys(Keys.BACK_SPACE)</span><br><span class="line">time.sleep(<span class="number">3</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 输入空格键+“教程”</span></span><br><span class="line">driver.find_element_by_id(<span class="string">"kw"</span>).send_keys(Keys.SPACE)</span><br><span class="line">driver.find_element_by_id(<span class="string">"kw"</span>).send_keys(<span class="string">"教程"</span>)</span><br><span class="line">time.sleep(<span class="number">3</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># ctrl+a 全选输入框内容</span></span><br><span class="line">driver.find_element_by_id(<span class="string">"kw"</span>).send_keys(Keys.CONTROL,<span class="string">'a'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3><span id="截图操作">截图操作</span></h3><p>截图的方法：<code>save_screenshot(file)</code></p>
+<h2><span id="unittest-单元测试框">unittest 单元测试框</span></h2><p><strong>在上一节，我们对 Selenium WebDriver 的使用，仅仅停留在让网页自动的进行操作的阶段，并没有对任何一个步骤进行“检查”。当然，这样没有“检查”的操作，实际上是没有测试意义的。那</strong>么第一项，我们需要解决的便是“检查”的问题。</p>
+<p>所谓“检查”，实际上就是断言。对需要检查的步骤操作，通过对预先设置的期望值，和执行结果的实际值之间的对比，得到测试的结果。在这里，我们并不需要单独的写 if 语句进行各种判定，而是可以使用编程语言中对应的单元测试框架，即可解决好此类问题。</p>
+<p>目前 Java 语言主流的单元测试框架有 JUnit 和 TestNG。Python 语言主流的单元测试框架有 unittest 。本小节的内容，主要介绍 unittest 的使用，探讨单元测试框架如何帮助自动化测试。</p>
+<p>接下来我们将会使用 Python 语言的unittest框架展开“检查”。unittest框架的原本的名字是PyUnit。是从JUnit 这样一个被广泛使用的 经典的Java应用开发的单元测试框架创造而来。类似的框架还有NUnit（.Net开发的单元测试框架）等。我们可以使用unittest框架为任意Python项目编写可理解的单元测试集合。现在这个unittest已经作为Python的标准库模块发布。我们安装完Python以后，便可以直接使用unittest。</p>
+<p>使用unittest需要以下简单的三步：</p>
+<ul>
+<li>引入unittest模组</li>
+<li>继承unittest.TestCase基类</li>
+<li>测试方法以test开头</li>
+</ul>
+<p>unittest 并未使用 Java 语言常见的注解方式，依旧停留在 比较早期的 Java 版本中依靠方法名称进行识别的方式。主要有以下两个固定名字的方法：</p>
+<ul>
+<li>setUp()：在每个测试方法运行前，执行。是测试前置条件。</li>
+<li>tearDown()：在每个测试方法运行后执行，是测试清理操作。<br>具体的代码如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 引入unittest模组</span></span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"> </span><br><span class="line"><span class="comment">## 定义测试类，名字为DemoTests</span></span><br><span class="line"><span class="comment">## 该类必须继承unittest.TestCase基类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoTests</span><span class="params">(unittest.TestCase)</span>:</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">## 使用'@'修饰符，注明该方法是类的方法</span></span><br><span class="line">    <span class="comment">## setUpClass方法是在执行测试之前需要先调用的方法</span></span><br><span class="line">    <span class="comment">## 是开始测试前的初始化工作</span></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUpClass</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(<span class="string">"call setUpClass()"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">## 每一个测试开始前的预置条件</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"call setUp()"</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="comment">## 每一个测试结束以后的清理工作</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tearDown</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"call tearDown()"</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="comment">## 测试一（务必以test开头）</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_01</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"call test_01()"</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">## 测试三（务必以test开头）</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_02</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"call test_02()"</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">## 测试三（务必以test开头）</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_03</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"call test_03()"</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">## tearDownClass方法是执行完所有测试后调用的方法</span></span><br><span class="line">    <span class="comment">## 是测试结束后的清除工作</span></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tearDownClass</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(<span class="string">"call tearDownClass()"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 执行测试主函数</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment">## 执行main全局方法，将会执行上述所有以test开头的测试方法</span></span><br><span class="line">    unittest.main(verbosity=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>需要注意步骤：</p>
+<ul>
+<li>引入 unittest 模组</li>
+<li>继承 unittest.TestCase 类</li>
+<li>做测试用例的方法，方法以 test_ 开头<ul>
+<li>附加 setUp(), tearDown(), 在每个 test_ 方法执行前后 进行执行</li>
+<li>附加 setUpClass(), tearDownClass()需要在 类实例化的对象，运行的开头和结尾进行执行。加了星号(*)的步骤，可以不用。</li>
+</ul>
+</li>
+</ul>
+<p>上述代码运行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">call setUpClass()</span><br><span class="line">call setUp()</span><br><span class="line">call test_01()</span><br><span class="line">call tearDown()</span><br><span class="line">call setUp()</span><br><span class="line">call test_02()</span><br><span class="line">call tearDown()</span><br><span class="line">call setUp()</span><br><span class="line">call test_06()</span><br><span class="line">call tearDown()</span><br><span class="line">call tearDownClass()</span><br></pre></td></tr></table></figure>
+
+<p>为什么选择 unittest</p>
+<ul>
+<li>清晰的单元测试框架，提供 TestCase, TestSuite, TextTestRunner 等基本类</li>
+<li>unittest 是 原生 Python 的一部分</li>
+<li>unittest 有第三方可用的 HTML 库，可以轻松的生成 测试报告</li>
+</ul>
+<h2><span id="为什么需要封装-selenium">为什么需要封装 Selenium</span></h2><ul>
+<li>什么是封装</li>
+</ul>
+<p>封装是一个面向对象编程的概念，是面向对象编程的核心属性，通过将代码内部实现进行密封和包装，从而简化编程。对Selenium进行封装的好处主要有如下三个方面：</p>
+<ul>
+<li>使用成本低<ul>
+<li>不需要要求所有的测试工程师会熟练使用Selenium，而只需要会使用封装以后的代码</li>
+<li>不需要对所有的测试工程师进行完整培训。也避免工作交接的成本。</li>
+<li>测试人员使用统一的代码库</li>
+</ul>
+</li>
+<li>维护成本低<ul>
+<li>通过封装，在代码发生大范围变化和迁移的时候，不需要维护所有代码，只需要变更封装的部分即</li>
+<li>维护代码不需要有大量的工程师，只需要有核心的工程师进行封装的维护即可</li>
+</ul>
+</li>
+<li>代码安全性<ul>
+<li>对作为第三方的Selenium进行封装，是代码安全的基础。</li>
+<li>对于任何的代码的安全隐患，必须由封装来解决，使得风险可控。</li>
+<li>使用者并不知道封装内部的代码结构。</li>
+</ul>
+</li>
+</ul>
+<h2><span id="page-object设计模式介绍">Page-Object设计模式介绍</span></h2><ul>
+<li><p>Page-Object设计模式的本质</p>
+<p>Page Object设计模式是Selenium自动化测试项目的最佳设计模式之一，强调测试、逻辑、数据和驱动相互分离。</p>
+<p>Page Object模式是Selenium中的一种测试设计模式，主要是将每一个页面设计为一个Class，其中包含页面中需要测试的元素（按钮，输入框，标题等），这样在Selenium测试页面中可以通过调用页面类来获取页面元素，这样巧妙的避免了当页面元素id或者位置变化时，需要改测试页面代码的情况。当页面元素id变化时，只需要更改测试页Class中页面的属性即可。</p>
+<p>它的好处如下：</p>
+<ul>
+<li>集中管理元素对象，便于应对元素的变化</li>
+<li>集中管理一个page内的公共方法，便于测试用例的编写</li>
+<li>后期维护方便，不需要重复的复制和修改代码</li>
+</ul>
+</li>
+</ul>
+<p>  具体的做法如下：</p>
+<ol>
+<li>创建一个页面的类</li>
+<li>在类的构造方法中，传递 WebDriver 参数。</li>
+<li>在测试用例的类中，实例化页面的类，并且传递在测试用例中已经实例化的WebDriver对象。</li>
+<li>在页面的类中，编写该页面的所有操作的方法</li>
+<li>在测试用例的类中，调用这些方法</li>
+</ol>
+<ul>
+<li>Page 如何划分</li>
+</ul>
+<p>一般通过继承的方式，进行按照实际Web页面进行划分</p>
+<ul>
+<li><p>Page-Object 类如何实现</p>
+<p>实现的示例</p>
+<ul>
+<li><p>Page 基类</p>
+<ul>
+<li>设计了一个基本的 Page类，以便所有的页面进行继承，该类标明了一个sub page类的基本功能和公共的功能。</li>
+<li>全局变量： self.base_driver，让所有的子类都使用的。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基类的变量，所有继承的类，都可以使用</span></span><br><span class="line">base_driver = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>构造方法：</p>
+<ul>
+<li>传递 driver的构造方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, driver: BoxDriver)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    构造方法</span></span><br><span class="line"><span class="string">    :param driver: ":BoxDriver" 规定了 driver 参数类型</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    self.base_driver = driver</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2><span id="构建测试方案">构建测试方案</span></h2><h3><span id="数据驱动在自动化测试中的应用">数据驱动在自动化测试中的应用</span></h3><h3><span id="什么是数据驱动">什么是数据驱动</span></h3><p>主要的数据驱动方式有两种：</p>
+<ul>
+<li>通过 文本文件或者 Excel 文件存储数据，并通过程序读取数据，遍历所有的行</li>
+<li>通过数据库存储数据，并通过程序和 SQL 脚本读取数据，遍历所有的行</li>
+</ul>
+<p>通过 CSV 文件 或者 MySQL 数据库，是主流的数据驱动方式。当然数据驱动也可以结合单元测试框架的参数化测试进行编写（此部分本文不做具体描述）。</p>
+<p>无论使用了 哪一种（CSV 或者 MySQL），读取数据后都要进行遍历操作。</p>
+<ul>
+<li>使用 csv</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line">csv_file = open(<span class="string">"xxx.csv"</span>, <span class="string">"r"</span>, encoding=<span class="string">"utf8"</span>)</span><br><span class="line">csv_data = csv.reader(csv_file)</span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> csv_data:</span><br><span class="line">    <span class="comment"># 进行测试</span></span><br><span class="line">    <span class="comment"># 使用字典类型</span></span><br><span class="line">    data_to_test = &#123;</span><br><span class="line">      <span class="string">"key1"</span>: row[<span class="number">0</span>],</span><br><span class="line">      <span class="string">"key2"</span>: row[<span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">csv_file.close()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 MySQL</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">connect = pymysql.connect(host=<span class="string">"xx"</span>, port=<span class="number">3306</span>, user=<span class="string">"root"</span>, passwd=<span class="string">"xxx"</span>, db=<span class="string">"xx"</span>)</span><br><span class="line">cur = connect.cursor()</span><br><span class="line">cur.execute(<span class="string">"SELECT..."</span>)</span><br><span class="line">mysql_data = cur.fetchall()</span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> mysql_data:</span><br><span class="line"><span class="comment"># 进行测试</span></span><br><span class="line"><span class="comment"># 使用字典类型</span></span><br><span class="line">    data_to_test = &#123;</span><br><span class="line">      <span class="string">"key1"</span>: row[<span class="number">0</span>],</span><br><span class="line">      <span class="string">"key2"</span>: row[<span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">cur.close()</span><br><span class="line">connect.close()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>需要掌握的知识点：</li>
+</ul>
+<ol>
+<li>python的字典类型 dict 类型</li>
+<li>python的读写文件</li>
+<li>python的读写数据库</li>
+<li>for循环</li>
+<li>注意资源的释放<ol>
+<li>关闭数据库游标和连接</li>
+<li>关闭文件</li>
+</ol>
+</li>
+</ol>
+<h3><span id="测试方案的编码实现">测试方案的编码实现</span></h3><ul>
+<li>main.py 测试入口</li>
+<li>runner.py 测试运行器</li>
+<li>cases 测试用例</li>
+<li>pages 测试页面</li>
+<li>base 底层封装与驱动</li>
+</ul>
+<h3><span id="测试报告的生成">测试报告的生成</span></h3><ul>
+<li><p>如何生成测试报告</p>
+</li>
+<li><p>测试报告的种类</p>
+</li>
+<li><p>HTML 测试报告的生成</p>
+<p>HTML测试报告需要引入HTMLTestRunner</p>
+<p>HTMLTestRunner是基于Python2.7的，我们的课程讲义基于Python3.x，那么需要对这个文件做一定的修改。</p>
+</li>
+</ul>
+<p>测试的示例代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 声明一个测试套件</span></span><br><span class="line">suite = unittest.TestSuite()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加测试用例到测试套件</span></span><br><span class="line">suite.addTest(RanzhiTests(<span class="string">"test_ranzhi_login"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个新的测试结果文件</span></span><br><span class="line">buf = open(<span class="string">"./result.html"</span>, <span class="string">"wb"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 声明测试运行的对象</span></span><br><span class="line">runner = HTMLTestRunner.HTMLTestRunner(stream=buf,</span><br><span class="line">                                       title=<span class="string">"Ranzhi Test Result"</span>,</span><br><span class="line">                                       description=<span class="string">"Test Case Run Result"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行测试，并且将结果生成为HTML</span></span><br><span class="line">runner.run(suite)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭文件输出</span></span><br><span class="line">buf.close()</span><br></pre></td></tr></table></figure>
+
+<p>在这里向大家推荐一个学习交流群，里面有小伙伴整理好的自动化资料上传在群文件，欢迎大家加群下载：1007119548，</p>
+
+      
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/24/selenium简介/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Re：KNN深入浅出" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/23/Re：KNN深入浅出/">Re：KNN深入浅出</a>
+    </h1>
+  
+
+            <span id="busuanzi_container_page_pv" style="color:#ccc;margin-left:30px">
+  您是第<span id="busuanzi_value_page_pv"></span>个阅读者
+</span>
+        
+        <a href="/2019/10/23/Re：KNN深入浅出/" class="archive-article-date">
+  	<time datetime="2019-10-23T10:29:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>转载：<a href="https://juejin.im/post/5d15a1486fb9a07ebb054705" target="_blank" rel="noopener">https://juejin.im/post/5d15a1486fb9a07ebb054705</a></p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文主要介绍一个被广泛使用的机器学习<strong>分类算法</strong>，K-nearest neighbors（KNN）,中文叫K近邻算法。 </p>
+<h1 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h1><p>k近邻算法是一种基本分类和回归方法。</p>
+<blockquote>
+<p>KNN实际上也可以用于回归问题，不过在工业界使用得比较广泛的还是分类问题</p>
+</blockquote>
+<p>KNN的核心思想也非常简单，<strong>如果一个样本在特征空间中的k个最相邻的样本中的大多数属于某一个类别，则该样本也属于这个类别</strong>，比如下图，当K=3时，节点会被预测属于红色椭圆类。有点“近朱者赤，近墨者黑”的感觉。 </p>
+        
+      
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/23/Re：KNN深入浅出/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Numpy基本操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -893,202 +1399,6 @@
 
 
   
-    <article id="post-论文实施路径" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/10/论文实施路径/">论文实施路径</a>
-    </h1>
-  
-
-            <span id="busuanzi_container_page_pv" style="color:#ccc;margin-left:30px">
-  您是第<span id="busuanzi_value_page_pv"></span>个阅读者
-</span>
-        
-        <a href="/2019/10/10/论文实施路径/" class="archive-article-date">
-  	<time datetime="2019-10-10T00:47:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
-        
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>在某一刻觉得论文的工作必须提上日程了，现在其他任务也比较少。</p>
-</blockquote>
-<p>论文撰写应该是个不小的任务，但是全程都是一个人完成，最重要的要素就是掌握时间线，在时间线前一些东西必须完成。</p>
-<p>所以我觉得应该是以下几步：</p>
-<ul>
-<li>先确定论文的方法<ul>
-<li>通过阅读大量文献，寻找目前他们结合POI做城市功能分区的方法</li>
-</ul>
-</li>
-<li>数据获取与上一步同时进行，将所有获取到的数据更新</li>
-<li>数据处理</li>
-<li>文字撰写</li>
-</ul>
-<p>下午完成具体的细节</p>
-        
-      
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Paper</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">School</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/10/论文实施路径/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-百度地图渔网法爬取POI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/09/百度地图渔网法爬取POI/">百度地图渔网法爬取POI</a>
-    </h1>
-  
-
-            <span id="busuanzi_container_page_pv" style="color:#ccc;margin-left:30px">
-  您是第<span id="busuanzi_value_page_pv"></span>个阅读者
-</span>
-        
-        <a href="/2019/10/09/百度地图渔网法爬取POI/" class="archive-article-date">
-  	<time datetime="2019-10-09T11:41:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
-</a>
-        
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>本测试代码来源于网络</p>
-<p>坐标均来源于：<a href="http://api.map.baidu.com/lbsapi/getpoint/index.html" target="_blank" rel="noopener">百度拾取坐标系统</a></p>
-</blockquote>
-<h1 id="小范围测试"><a href="#小范围测试" class="headerlink" title="小范围测试"></a>小范围测试</h1><h2 id="区域"><a href="#区域" class="headerlink" title="区域"></a>区域</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">left_bottom = [<span class="number">120.047994</span>,<span class="number">30.234518</span>];  <span class="comment"># 设置区域左下角坐标（百度坐标系） 浙工大屏风校区</span></span><br><span class="line">right_top = [<span class="number">120.146305</span>,<span class="number">30.314114</span>]; <span class="comment"># 设置区域右上角坐标（百度坐标系） 紫金公园</span></span><br><span class="line">query = <span class="string">'酒店'</span>; <span class="comment">#搜索关键词设置</span></span><br><span class="line">part_n = <span class="number">2</span>;  <span class="comment"># 设置区域网格（2*2）</span></span><br></pre></td></tr></table></figure>
-
-<p>爬取两次，均得到655个酒店位置，第一个酒店均为杭州西溪喜来登度假大酒店，最后一个酒店均为杭州尊蓝轩-海蓝经典复式</p>
-        
-      
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/09/百度地图渔网法爬取POI/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1201,19 +1511,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arcgis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color2">Arcgis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1221,11 +1523,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Flask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1233,11 +1535,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1245,7 +1547,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Abroad</a>
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1253,11 +1559,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">videos</a>
+                <a href="javascript:void(0)" class="js-tag color2">Abroad</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
+                <a href="javascript:void(0)" class="js-tag color2">videos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1265,15 +1571,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GRE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">阿里云</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
